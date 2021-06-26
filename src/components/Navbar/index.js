@@ -25,7 +25,7 @@ function Navbar({toggle}) {
                             </NavLinks>
                         </NavItem>
                         <NavItem>
-                            <NavLinks to={"about"}>
+                            <NavLinks to={"discover"}>
                                 Discover
                             </NavLinks>
                         </NavItem>
@@ -42,7 +42,7 @@ function Navbar({toggle}) {
 
                     </NavMenu>
                     <NavBtn>
-                        <NavBtnLink to={"singin"}>
+                        <NavBtnLink to={"signin"}>
                             Sing In
                         </NavBtnLink>
                     </NavBtn>
