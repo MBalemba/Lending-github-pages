@@ -69,22 +69,26 @@ export const NavMenu = styled.ul`
 
 export const NavItem = styled.li`
   height: 80px;
-
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `
 
 
 export const NavLinks = styled(LinkS)`
   color: #fff;
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
   padding: 0 1rem;
   height: 100%;
   cursor: pointer;
-
-  &:active {
-    border-bottom: 3px solid #01bf71;
-  }
+  transition: all 0.2s ease-in-out;
+  
 `
 
 export const NavBtn = styled.nav`

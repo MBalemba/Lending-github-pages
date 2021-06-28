@@ -1,0 +1,18 @@
+
+.underline{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: #01bf71;
+  content: '';
+  height: 0px;
+  width: 0%;
+  transition: all 0.2s ease-in-out;
+
+  &.rightToLeft{
+    height: 4px;
+    right: 0;
+    left: auto;
+    width: 100%;
+  }
+}

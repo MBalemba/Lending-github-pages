@@ -35,7 +35,7 @@ const HeroSection = () => {
                 <HeroBtnWrapper>
                     <Button to={'singup'} onMouseEnter={onHover} onMouseLeave={onHover}
                             primary='false'
-                            dark='false'
+                            dark={false}
                             big='false'
                     >
                         Get started {hover ? <ArrowForward/> : <ArrowRight/>}

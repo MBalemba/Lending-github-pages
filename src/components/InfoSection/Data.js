@@ -1,4 +1,4 @@
-import img from '../../images/svg-1.svg'
+
 
 export const homeObjOne = {
     id: 'about',
