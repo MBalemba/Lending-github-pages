@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import {motion} from "framer-motion";
 
-export const ServicesContainer = styled.div`
+export const ServicesContainer = styled(motion.div)`
   height: 800px;
   display: flex;
   flex-direction: column;
@@ -16,7 +17,7 @@ export const ServicesContainer = styled.div`
   }
 `
 
-export const ServicesWrapper = styled.div`
+export const ServicesWrapper = styled(motion.div)`
   max-width: 1000px;
   margin: 0 auto;
   display: grid;
@@ -35,7 +36,7 @@ export const ServicesWrapper = styled.div`
   }
 `
 
-export const ServicesCard = styled.div`
+export const ServicesCard = styled(motion.div)`
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -60,7 +61,7 @@ export const ServicesIcon = styled.img`
   margin-bottom: 10px;
 `
 
-export const ServicesH1 = styled.h1`
+export const ServicesH1 = styled(motion.h1)`
   font-size: 2.5rem;
   color: #fff;
   margin-bottom: 64px;

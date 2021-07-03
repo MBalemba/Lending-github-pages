@@ -10,93 +10,91 @@ import {
 
 function Navbar({toggle}) {
     const [scrollNav, setScrollNav] = useState(false);
-    let prevSection = null;
 
+    function runSliderMenu(Links){
+        setTimeout(()=>{
 
-    useEffect(() => {
-        let Links = document.querySelectorAll('.link');
+            let i = 0;
 
-        window.addEventListener('scroll', () => {
-            setTimeout(()=>{
+            let setNavSlider = function (link, index) {
+                let line = document.querySelector('.underline')
+                line.classList.add('rightToLeft');
 
-                let i = 0;
-
-                let setNavSlider = function (link, index) {
-                    let line = document.querySelector('.underline')
-                    line.classList.add('rightToLeft');
-
-                    function getLeft(ind) {
-                        let left = 0;
-                        for(let i = 0; i< Links.length; i++){
-                            if(i === ind){
-                                break
-                            }
-                                left += Links[i].offsetWidth
+                function getLeft(ind) {
+                    let left = 0;
+                    for(let i = 0; i< Links.length; i++){
+                        if(i === ind){
+                            break
                         }
-
-                        return left
+                        left += Links[i].offsetWidth
                     }
 
-                    switch (index.toString()) {
-                        case '0':
-                            line.style = `
-                        left: ${getLeft(index)}px;
-                        width: ${link.offsetWidth}px;
-                                `
-                            break;
-                        case '1':
-
-                            line.style = `
-                        left: ${getLeft(index)}px;
-                        width: ${link.offsetWidth}px;
-                                `
-                            break;
-                        case '2':
-                            line.style = `
-                        left: ${getLeft(index)}px;
-                        width: ${link.offsetWidth}px;
-                        `
-                            break;
-                        case '3':
-                            line.style = `
-                        left: ${getLeft(index)}px;
-                        width: ${link.offsetWidth}px;
-                        `
-                            break;
-                        default:
-                            line.style = ``
-                            line.classList.remove('rightToLeft');
-
-                    }
+                    return left
                 }
 
+                switch (index.toString()) {
+                    case '0':
+                        line.style = `
+                        left: ${getLeft(index)}px;
+                        width: ${link.offsetWidth}px;
+                        background: #0BA6BF;
+                                `
+                        break;
+                    case '1':
 
-                Links.forEach((link,index) => {
+                        line.style = `
+                        left: ${getLeft(index)}px;
+                        width: ${link.offsetWidth}px;
+                        background: #0BA6BF;
+                                `
+                        break;
+                    case '2':
+                        line.style = `
+                        left: ${getLeft(index)}px;
+                        width: ${link.offsetWidth}px;
+                        background: #0BA6BF;
+                        `
+                        break;
+                    case '3':
+                        line.style = `
+                        left: ${getLeft(index)}px;
+                        width: ${link.offsetWidth}px;
+                        background: #0BA6BF;
+                        `
+                        break;
+                    default:
+                        line.style = ``
+                        line.classList.remove('rightToLeft');
+
+                }
+            }
 
 
-                    try {
-                        link.classList.forEach((classN) => {
-                            if (classN === 'active') {
-                                setNavSlider(link, index);
-                                throw new Error();
-                            }
-                        })
-                        i++;
-                        if(i===4){
-                            setNavSlider(link, 6);
-                            i=0;
+            Links.forEach((link,index) => {
+
+
+                try {
+                    link.classList.forEach((classN) => {
+                        if (classN === 'active') {
+                            setNavSlider(link, index);
+                            throw new Error();
                         }
+                    })
+                    i++;
+                    if(i===4){
+                        setNavSlider(link, 6);
+                        i=0;
                     }
-                    catch (e) {
+                }
+                catch (e) {
 
-                    }
+                }
 
-                })
-            }, 100)
-        })
+            })
+        }, 60)
+    }
 
 
-    })
 
     const changeNav = () => {
         if (window.scrollY >= 80) {
@@ -106,6 +104,11 @@ function Navbar({toggle}) {
         }
     }
 
+
+    useEffect(() => {
+        let Links = document.querySelectorAll('.link');
+        window.addEventListener('scroll', runSliderMenu.bind(null, Links))
+    })
 
     useEffect(() => {
         window.addEventListener('scroll', changeNav)
@@ -128,6 +131,7 @@ function Navbar({toggle}) {
 
                     <NavMenu>
                         <NavItem>
+
                             <NavLinks className={'link'} to={"about"}
                                       smooth={true} duration={500} exact='true' offset={-80} activeClass={"active"}
                                       spy={true}

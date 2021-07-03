@@ -1,4 +1,5 @@
 import styled , {css} from 'styled-components'
+import {motion} from "framer-motion";
 
 export const InfoContainer = styled.div`
   color: #fff;
@@ -20,7 +21,7 @@ export const InfoWrapper = styled.div`
   padding: 0 24px;
   justify-content: center;
 `
-export const InfoRow = styled.div`
+export const InfoRow = styled(motion.div)`
   display: grid;
   grid-auto-columns: minmax(auto, 10fr);
   align-items: center;
@@ -30,13 +31,13 @@ export const InfoRow = styled.div`
      grid-template-areas: ${({imgStart}) => (imgStart?`'col1' 'col2'`: `'col1 col1' 'col2 col2'`)};
   }
 `
-export const Column1 = styled.div`
+export const Column1 = styled(motion.div)`
   margin-bottom: 15px;
   padding: 0 15px;
   grid-area: col1;
 `
 
-export const Column2 = styled.div`
+export const Column2 = styled(motion.div)`
   margin-bottom: 15px;
   padding: 0 15px;
   grid-area: col2;

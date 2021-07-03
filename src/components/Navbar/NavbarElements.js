@@ -88,7 +88,6 @@ export const NavLinks = styled(LinkS)`
   height: 100%;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
-  
 `
 
 export const NavBtn = styled.nav`

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {Button} from "../ButtonElement";
+import { useInView } from 'react-intersection-observer';
+
 import {
     BtnWrap,
     Column1, Column2, Heading,
@@ -11,6 +13,7 @@ import {
     TextWrapper,
     TopLine
 } from "./InfoElements";
+import {container, moveBlock} from "../../Anime/Anymation";
 
 const InfoSection = ({
                          lightBg,
@@ -27,12 +30,30 @@ const InfoSection = ({
                          img,
                          alt
                      }) => {
+
+    const [triger, changeTriger] = useState(false);
+
+    const { ref, inView, entry } = useInView({
+        threshold: 0.3,
+    })
+
+    useEffect(()=>{
+        console.log(inView);
+        if(inView && !triger){
+            changeTriger(!triger);
+        }
+    })
+
     return (
         <>
-            <InfoContainer lightBg={lightBg} id={id}>
-                <InfoWrapper>
-                    <InfoRow imgStart={imgStart}>
-                        <Column1>
+            <InfoContainer ref={ref} lightBg={lightBg} id={id}>
+                <InfoWrapper  >
+                    <InfoRow variants={container}
+                             initial={'hidden'}
+                             animate={triger?'show':''} imgStart={imgStart}>
+                        <Column1
+                            variants={imgStart? moveBlock('ltr'):moveBlock('rtl') }
+                        >
                             <TextWrapper>
                                 <TopLine>{topLine}</TopLine>
                                 <Heading lightText={lightText}>{headline}</Heading>
@@ -48,7 +69,10 @@ const InfoSection = ({
                                 </BtnWrap>
                             </TextWrapper>
                         </Column1>
-                        <Column2>
+
+                        <Column2
+                            variants={imgStart? moveBlock('rtl'): moveBlock('ltr') }
+                        >
                             <ImgWrap>
                                 <Img src={img} alt={alt}/>
                             </ImgWrap>
