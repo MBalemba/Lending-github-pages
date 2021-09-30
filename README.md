@@ -1,3 +1,13 @@
+
+# Landing dolla
+
+## О проекте
+Мотивацией для данного проекта было создать красивый лендинг с различными анимациями и эффектами.
+
+## Демонстрация приложения
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
